@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google"
 import "./globals.css";
 import Providers from "@/containers/providers";
+import Navbar from "@/components/navbar";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         >
         </div>
         <Providers>
+          <Navbar />
         {children}
         </Providers>
       </body>

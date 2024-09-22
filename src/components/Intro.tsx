@@ -16,6 +16,7 @@ const Intro = () => {
 
    const { ref }=useSectionInView("#home", 0.5)
    const {setActiveSection,setTimeOfLastClick}=useActiveSectionContext()
+   
   return (
     <section className='mb-28 max-w-[75rem] text-center sm:mb-0'
      ref={ref}
