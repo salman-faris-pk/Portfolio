@@ -13,6 +13,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Its Me pk",
   description: "My Personal Portfolio....",
+  icons:"/pr.jpg",
 };
 
 export default function RootLayout({
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="!scroll-smooth">
       <body
         className={`${sora.variable} font-sora flex flex-col bg-gray-50 text-gray-950 relative
        dark:text-gray-50 dark:bg-gray-900 dark:text-opacity-90 antialiased`}
