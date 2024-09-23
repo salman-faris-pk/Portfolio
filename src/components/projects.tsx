@@ -11,7 +11,7 @@ export default function Projects(){
     const { ref }=useSectionInView("#projects", 0.1)
 
     return(
-        <section id="projects" className="scroll-mt-28 mb-28 ">
+        <section id="projects" className="scroll-mt-28 mb-28 " ref={ref}>
             <SectionHeading>
                 My Projects
             </SectionHeading>

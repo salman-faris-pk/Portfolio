@@ -14,12 +14,14 @@ import { useActiveSectionContext } from '@/containers/active-section';
 
 const Intro = () => {
 
-   const { ref }=useSectionInView("#home", 0.5)
+  const { ref: homeRef } = useSectionInView("#home", 0.5);
+  const { ref: contactRef } = useSectionInView("#contact", 0.5);
+
    const {setActiveSection,setTimeOfLastClick}=useActiveSectionContext()
    
   return (
     <section className='mb-28 max-w-[75rem] text-center sm:mb-0'
-     ref={ref}
+     ref={homeRef}
      id="home"
     >
         <div className='flex items-center justify-center'>
@@ -74,7 +76,7 @@ const Intro = () => {
 
           }}
         >
-          <Link href="#" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
+          <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
               outline-none focus:scale-110 hover:scale-110 hover:bg-gra-950 dark:bg-white/10 active:scale-105 transition'>
             Connect <Mail color={`#9ca3af`}/>
           </Link>
