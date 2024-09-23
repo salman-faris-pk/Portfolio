@@ -8,6 +8,8 @@ import SubmitBtn from './submit-btn'
 import { Fade } from 'react-awesome-reveal'
 import { useFormik } from "formik"
 import * as Yup from 'yup';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 interface FormValues{
@@ -16,10 +18,9 @@ interface FormValues{
 }
 
 const Contact: React.FC = () => {
-    const [success, setSuccess] = useState(false);
     const { ref }=useSectionInView("#contact");
-
-
+    const [pending, setPending] = useState(false); 
+      
     const validationSchema = Yup.object({
       email: Yup.string()
         .email('Invalid email address')
@@ -34,7 +35,9 @@ const Contact: React.FC = () => {
         message: '',
       },
       validationSchema,
-      onSubmit: async (values) => {
+      onSubmit: async (values: FormValues) => {
+
+        setPending(true); 
         const res = await fetch('/api/sendMail', {
           method: 'POST',
           headers: {
@@ -42,10 +45,14 @@ const Contact: React.FC = () => {
           },
           body: JSON.stringify(values),
         });
+
+        setPending(false); 
   
         if (res.ok) {
-          setSuccess(true);
+          toast.success("Your message has been sent!"); 
           formik.resetForm();
+        } else {
+          toast.error("Failed to send your message.");
         }
       },
     });
@@ -56,6 +63,15 @@ const Contact: React.FC = () => {
     id='contact'
      ref={ref}
     >
+        <ToastContainer 
+        position="bottom-right" 
+        autoClose={3000} 
+        hideProgressBar 
+        closeOnClick 
+        pauseOnHover 
+        draggable 
+        theme="light" 
+      />
          <Fade direction='up' delay={400} cascade damping={1e-1} triggerOnce={true}>
          <SectionHeading>
             {"Contact Me"}
@@ -72,7 +88,7 @@ const Contact: React.FC = () => {
 
         <form className='mt-10 flex flex-col dark:text-black' onSubmit={formik.handleSubmit}>
             <input
-             className='h-14 px-4 rounded-lg border-black dark:bg-white  dark:text-gray-950'
+             className='h-14 px-4 rounded-lg border-black dark:bg-white/10 dark:text-white/80'
              name='email'
              type='email'
              value={formik.values.email}
@@ -83,9 +99,8 @@ const Contact: React.FC = () => {
              placeholder={"Your email"}
             />
           
-
             <textarea
-             className='h-52 p-4 text-sm my-3 rounded-lg resize-none border-black dark:bg-white  dark:text-gray-950'
+             className='h-52 p-4 text-sm my-3 rounded-lg resize-none border-black dark:bg-white/10 dark:text-white/80'
              name='message'
              placeholder={
                 "message...."
@@ -97,9 +112,9 @@ const Contact: React.FC = () => {
              maxLength={5000}
             />
 
-            <SubmitBtn text={"Submit"}/>
+            <SubmitBtn text={"Submit"} pending={pending}/>
         </form>
-          {success && <p>Your message has been sent!</p>}
+         
         </Fade>  
     </motion.section>
   )
