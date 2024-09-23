@@ -8,3 +8,11 @@ export type Link={
     nameEng: string;
     hash: string;
 }
+
+export type projectInfo={
+    title: string;
+    description: string | null;
+    tags: string[];
+    imageUrl: string,
+    link: string | null
+}
