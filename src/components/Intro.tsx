@@ -8,7 +8,8 @@ import {Mail} from "lucide-react"
 import {motion} from "framer-motion"
 import {Fade} from "react-awesome-reveal"
 import { useSectionInView } from '@/lib/useInView';
-import { useActiveSectionContext } from '@/containers/active-section';
+import { useState } from 'react';
+
 
 
 
@@ -17,7 +18,7 @@ const Intro = () => {
   const { ref: homeRef } = useSectionInView("#home", 0.5);
   const { ref: contactRef } = useSectionInView("#contact", 0.5);
 
-   const {setActiveSection,setTimeOfLastClick}=useActiveSectionContext()
+  const [isHovered, setIsHovered] = useState(false);
    
   return (
     <section className='mb-28 max-w-[75rem] text-center sm:mb-0'
@@ -76,13 +77,38 @@ const Intro = () => {
 
           }}
         >
-          <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
-              outline-none focus:scale-110 hover:scale-110 hover:bg-gra-950 dark:bg-white/10 active:scale-105 transition'>
+          {/* <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
+              outline-none focus:scale-110 hover:scale-110 hover:bg-gra-950 dark:bg-white/10 active:scale-105 transition'
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              >
             Connect <Mail color={`#9ca3af`}/>
           </Link>
+          {isHovered && (
+        <div className='absolute top-20 mt-2 px-4 py-2 text-lg font-bold bg-red-600  text-white rounded-md'>
+          Click to contact us!
+        </div>
+      )} */}
+
+          <div className="relative">
+          <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
+            outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition'
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            Connect <Mail color={`#9ca3af`} />
+          </Link>
+
+          
+          {isHovered && (
+            <div className='absolute left-0 bottom-full mb-2 px-2 py-1 text-xs  bg-gray-900 dark:bg-white/10 text-white rounded-md'>
+              salmanulfarispk2001@gmail.com
+            </div>
+          )}
+        </div>
           <a className='bg-gray-900 p-4 text-white flex items-center gap-2  rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 
              transition cursor-pointer border-black dark:bg-white/10 dark:text-white/60'
-             href='#'
+             href='https://linkedin.com/in/salmanul-faris-pk-719b35295'
              target='_blank'
              >
             <BsLinkedin />
@@ -90,13 +116,14 @@ const Intro = () => {
 
           <a className='bg-gray-900 p-4 text-white flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 
              transition cursor-pointer border-black dark:bg-white/10 dark:text-white/60'
-             href='#'
+             href='https://github.com/salmanulfarispk'
              target='_blank'
              >
             <FaGithubSquare />
           </a>
         </motion.div>
     </section>
+
   )
 }
 
