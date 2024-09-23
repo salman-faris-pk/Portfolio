@@ -29,15 +29,15 @@ export const links: Link[]=[
 
 export const projectData: projectInfo[] =[
     {
-      title: "Snowlake Theme",
+      title: "Ecommerce-shop-Website",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
-      imageUrl:"/image1.png",
+      imageUrl:"/image1.png",      
       link:"https://www.google.com"
 
     },
     {
-        title: "Budget app",
+        title: "Chat Me app",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
         imageUrl:"/image2.png",
@@ -45,7 +45,7 @@ export const projectData: projectInfo[] =[
   
       },
       {
-        title: "Storage App",
+        title: "X-Twitter web",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
         imageUrl:"/image3.png",
@@ -53,7 +53,7 @@ export const projectData: projectInfo[] =[
   
       },
       {
-        title: "Missio Theme",
+        title: "Task-management App",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
         imageUrl:"/image4.png",

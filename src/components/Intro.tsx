@@ -64,8 +64,8 @@ const Intro = () => {
 
         <Fade direction='up' delay={400} cascade damping={1e-1} triggerOnce={true}>
         <h1 className='mb-10 mt-4 px-4 text-2xl sm:text-4xl'>
-          <span className='font-medium !leading-[1.5]'>Grow your bussiness with a new website</span>{" "}
-          <p className='text-[14px]'>Frontend is full-service creative studio ,creating besautiful digital experiences and products.</p>
+          <span className='font-medium !leading-[1.5]'>Salmanul Faris pk</span>{" "}
+          <p className='text-[14px]'>Expert in MERN stack development, delivering full-stack web solutions with seamless integration and optimized performance.</p>
         </h1>
         </Fade>
      
@@ -77,18 +77,7 @@ const Intro = () => {
 
           }}
         >
-          {/* <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
-              outline-none focus:scale-110 hover:scale-110 hover:bg-gra-950 dark:bg-white/10 active:scale-105 transition'
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              >
-            Connect <Mail color={`#9ca3af`}/>
-          </Link>
-          {isHovered && (
-        <div className='absolute top-20 mt-2 px-4 py-2 text-lg font-bold bg-red-600  text-white rounded-md'>
-          Click to contact us!
-        </div>
-      )} */}
+    
 
           <div className="relative">
           <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
