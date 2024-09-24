@@ -38,10 +38,10 @@ const Intro = () => {
                  }}
                 >
                     <Image
-                     src='/boy.png'
+                     src='/og.png'
                      alt='profile-img'
-                     width="480"
-                     height="480"
+                     width="300"
+                     height="200"
                      quality={100}
                      priority={true}
                      className='rounded-full shadow-xl object-cover'

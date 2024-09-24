@@ -46,8 +46,8 @@ const{ ref }=useSectionInView("#about")
                            </Fade>
                           <Fade direction='up' delay={1000} cascade damping={1e-1} triggerOnce={true}>
                             <p  className='mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70'>
-                            My main strength lies in building dynamic, scalable web applications, especially using React and Next.js for front-end development and Express for robust server-side logic. Over time, I’ve developed a strong ability to create seamless, responsive user experiences and efficient back-end architectures. 
-                            I’m always keen on learning and working with modern technologies to solve real-world problems.
+                             My strength lies in building dynamic, scalable web applications, especially using React and Next.js for front-end development and Express for robust server-side logic. Over time, I’ve developed a strong ability to create seamless, responsive user experiences and efficient back-end architectures. 
+                             I’m always keen on learning and working with modern technologies to solve real-world problems.
                              </p>
                            </Fade>
                         </div>

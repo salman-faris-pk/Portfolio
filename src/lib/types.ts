@@ -13,6 +13,7 @@ export type projectInfo={
     title: string;
     description: string | null;
     tags: string[];
-    imageUrl: string,
+    imageUrl: string;
+    Allimg: string[];
     link: string | null
 }
