@@ -5,12 +5,12 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { IoMdClose } from "react-icons/io";
+
 
 
 type ProjectProps = projectInfo;
 
-export default function Project({ title, description, tags, imageUrl, Allimg, link }: ProjectProps) {
+export default function Project({ title, description, tags, imageUrl, Allimg}: ProjectProps) {
 
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -24,7 +24,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg, li
   const [openImg, setOpenImg] = useState(false)
 
   return (
-    <motion.div className="group mb-3 sm:mb-8 last:mb-0"
+    <motion.div className="group mb-3 sm:mb-8 last:mb-0"   onClick={() => setOpenImg(true)}
       ref={ref}
       style={{
         scale: scaleProgress,
@@ -37,7 +37,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg, li
         <div className="pt-4 pb-7 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full
               sm:group-even:ml-[18rem]">
           <h3 className="text-2xl px-2 md:px-0 font-semibold">{title}</h3>
-          <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70 px-2 md:px-0">{description}</p>
+          <p className="mt-2 leading-relaxed text-gray-700 text-sm dark:text-white/70 px-2 md:px-0">{description}</p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto px-2 md:px-0">
             {
               tags.map((tag, index) => (
@@ -65,7 +65,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg, li
 
         {openImg && (
           <div className="fixed bottom-60 inset-0 flex items-center justify-center w-full h-full bg-black/70 z-20" onClick={()=>setOpenImg(false)}>
-            <div className="relative w-[400px] h-[100px] rounded-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-[400px] h-[100px] md:w-[600px] md:h-[300px] rounded-2xl" onClick={(e) => e.stopPropagation()}>
               <Swiper
                 modules={[Navigation]}
                 slidesPerView={1}

@@ -58,13 +58,13 @@ const{ ref }=useSectionInView("#about")
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
-                     src="/about.png"
+                     src="/pks.png"
                      alt='about-Me'
                      width="600"
                      height="600"
                      quality="100"
                      priority={true}
-                     className='rounded-full mt-8 object-cover' 
+                     className='rounded mt-8 object-cover md:ms-10' 
                     />
                     </Fade>
                   </div>

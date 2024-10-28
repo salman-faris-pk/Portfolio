@@ -29,38 +29,38 @@ export const links: Link[]=[
 
 export const projectData: projectInfo[] =[
     {
-      title: "Ecommerce-shop-Website",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
-      imageUrl: "/image1.png",
-      Allimg: ["/image1.png","/brands.png","/ui.png","/newecom.png","/login.png"],
+      title: "Ecommerce-shopping-Website",
+      description:"Shop effortlessly with our responsive e-commerce website, designed for simplicity on any device.",
+      tags:["Next.js","TypeScript","React-vite","Express.js","TailwindCss","MongoDB","Redux-TK","React-Query"],
+      imageUrl: "/ecom.jpeg",
+      Allimg: ["/ecom1.png","/ecom2.png","/ecom3.png","/ecom4.png","/ecom5.png","/ecom6.png","/ecom7.png","/ecom8.png","/ecom9.png","/ecom10.png","/ecom11.png","/ecom12.png"],
       link:"https://www.google.com"
 
     },
     {
         title: "Chat Me app",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
-        imageUrl: "/image2.png",
-        Allimg: ["/image2.png","/brands.png","/ui.png","/newecom.png","/login.png"],
+        description:"Engage in real-time conversations with users across all devices, ensuring a responsive and seamless chatting experience.",
+        tags:["React-vite","React-tk","TailwindCss","MongoDB","Express.js","Formik","socket.io"],
+        imageUrl: "/chat.png",
+        Allimg: ["/chat2.png","/chat2.png","/chat3.png","/chat4.png","/chat5.png","/chat6.png"],
         link:"https://www.google.com"
   
       },
       {
-        title: "X-Twitter web",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
-        imageUrl: "/image3.png",
-        Allimg: ["/image3.png","/brands.png","/ui.png","/newecom.png","/login.png"],
+        title: "X-Twitter clone",
+        description:"A platform to connect, share posts, like content, and follow others seamlessly across all devices, bringing users closer anytime, anywhere.",
+        tags:["React-vite","React-query","MongoDB","TailwindCss","Express.js","cloudinary"],
+        imageUrl: "/x.png",
+        Allimg: ["/x1.png","/x2.png","/x3.png","/x4.png","/x5.png","/x6.png","/x7.png","/x8.png","/x9.png"],
         link:"https://www.google.com"
   
       },
       {
-        title: "Task-management",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        tags:["React","Next.js","MongoDB","TailwindCss","NodeJS","Express.js","TypeScript"],
-        imageUrl: "/image4.png",
-        Allimg: ["/image4.png","/brands.png","/ui.png","/newecom.png","/login.png"],
+        title: "waste-management",
+        description:"Report waste, schedule pickups, and earn rewards for your efforts in creating a cleaner and more sustainable community.",
+        tags:["Next.js","Mongoose","TailwindCss","TypeScript","web3auth","firebase-storage","leaflet"],
+        imageUrl: "/wastee.jpg",
+        Allimg: ["/waste1.png","/waste2.png","/waste3.png","/waste4.png","/waste4.png","/waste5.png","/waste6.png","/waste7.png","/waste8.png","/waste9.png"],
         link:"https://www.google.com"
   
       },
