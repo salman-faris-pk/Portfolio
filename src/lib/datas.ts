@@ -77,10 +77,12 @@ export const SkillsDatas=[
     "TypeScript",
     "Redux ToolKit",
     "Node.js",
-    "Express",
+    "ExpressJs",
     "MongoDB",
-    "Tailwind",
+    "TailwindCSS",
     "Git",
     "Framer Motion",
-    "React-Query(Tanstack)"
+    "React-Query(Tanstack)",
+    "socket.io",
+    'shadcn/ui',
 ];
