@@ -11,9 +11,12 @@ const sora = Sora({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 })
 export const metadata: Metadata = {
-  title: "Its Me pk",
+  title: "𝕚𝕥𝕤 𝕞𝕖 ℙ𝕜",
   description: "My Personal Portfolio....",
-  icons:"/pr.jpg",
+  icons:{
+    icon:"/about.png",
+    apple: "/apple-touch-icon.png", 
+  }
 };
 
 export default function RootLayout({
