@@ -42,7 +42,7 @@ const{ ref }=useSectionInView("#about")
                               
                            </Fade>
                           <Fade direction='up' delay={800} cascade damping={1e-1} triggerOnce={true}>
-                             <h3 className='font-bold mt-6'>Strength</h3>
+                             <h3 className='hidden md:block font-bold mt-6'>Strength</h3>
                            </Fade>
                           <Fade direction='up' delay={1000} cascade damping={1e-1} triggerOnce={true}>
                             <p  className='mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70'>
