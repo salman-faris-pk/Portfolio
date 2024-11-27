@@ -31,10 +31,10 @@ const{ ref }=useSectionInView("#about")
                     <div className='text-lg mt-10 xl:mt-3'>
                         <div className='flex  justify-start flex-col'>
                           <Fade direction='up' delay={400} cascade damping={1e-1} triggerOnce={true}>
-                            <h3 className='font-bold mt-6'>Bio</h3>
+                            <h3 className='font-bold mt-6 hidden md:block'>Bio</h3>
                            </Fade>
                           <Fade direction='up' delay={600} cascade damping={1e-1} triggerOnce={true}>
-                            <p className='mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70'>
+                            <p className='mt-0 md:mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70'>
                             I’m <span className='font-semibold'>Salmanul Faris PK</span>, a MERN stack developer from Calicut with a BCA degree (2023).
                              After graduating, I joined BridgeOn Solutions at KINFRA Tech Park, where I sharpened my skills
                               in full-stack development, specializing in React, Express.js,Nextjs,Ts, MongoDB, and Node.js.
