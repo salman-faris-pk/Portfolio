@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description: "My Personal Portfolio....",
   icons:{
     icon:"/about.png",
-    apple: "/apple-touch-icon.png", 
   }
 };
 
