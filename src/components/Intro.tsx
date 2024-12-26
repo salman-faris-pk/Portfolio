@@ -105,7 +105,7 @@ const Intro = () => {
 
           <a className='bg-gray-900 p-4 text-white flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 
              transition cursor-pointer border-black dark:bg-white/10 dark:text-white/60'
-             href='https://github.com/salmanulfarispk'
+             href='https://github.com/salman-faris-pk'
              target='_blank'
              >
             <FaGithubSquare />
