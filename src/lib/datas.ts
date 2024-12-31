@@ -80,6 +80,7 @@ export const SkillsDatas=[
     "ExpressJs",
     "MongoDB",
     "TailwindCSS",
+    "RTK-query",
     "Git",
     "Framer Motion",
     "Bootstrap",
