@@ -85,6 +85,7 @@ export const SkillsDatas=[
     "Framer Motion",
     "Bootstrap",
     "Prisma",
+    "mongoose",
     "React-Query(Tanstack)",
     "socket.io",
     'shadcn/ui',
