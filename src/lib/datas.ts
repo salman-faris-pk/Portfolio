@@ -82,6 +82,8 @@ export const SkillsDatas=[
     "TailwindCSS",
     "RTK-query",
     "Git",
+    "GraphQL",
+    "REST APIs",
     "Framer Motion",
     "Bootstrap",
     "Prisma",
