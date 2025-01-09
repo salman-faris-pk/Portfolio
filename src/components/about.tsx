@@ -57,14 +57,10 @@ const{ ref }=useSectionInView("#about")
                 {/**Right image section */}
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
-                    <Image
-                      src="/aboutnew.png"
+                    <img
+                      src="/abtnew.png"
                      alt='about-Me'
-                     width={600}
-                     height={600}
-                     quality="100"
-                     priority={true}
-                     className='rounded mt-10 md:mt-16 object-cover md:ms-10' 
+                     className='hidden md:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-80 dark:opacity-85' 
                     />
                     </Fade>
                   </div>
