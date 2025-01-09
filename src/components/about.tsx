@@ -64,7 +64,7 @@ const{ ref }=useSectionInView("#about")
                      height={600}
                      quality="100"
                      priority={true}
-                     className='rounded mt-5  md:-mt-16 object-cover md:ms-14' 
+                     className='rounded mt-10 md:mt-16 object-cover md:ms-10' 
                     />
                     </Fade>
                   </div>
