@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import SectionHeading from './section-heading'
-import Image from 'next/image'
 import { useSectionInView } from '@/lib/useInView'
 import { motion } from "framer-motion"
 import { Fade } from 'react-awesome-reveal'
