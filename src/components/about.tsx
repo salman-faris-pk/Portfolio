@@ -59,7 +59,7 @@ const{ ref }=useSectionInView("#about")
                     <img
                       src="/abtnew.png"
                      alt='about-Me'
-                     className='hidden md:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-80 dark:opacity-85' 
+                     className='hidden xl:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-80 dark:opacity-85' 
                     />
                     </Fade>
                   </div>
