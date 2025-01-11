@@ -25,7 +25,7 @@ const{ ref }=useSectionInView("#about")
             </SectionHeading>
             </Fade>
         
-            <div className='grid xl:grid-cols-2 lg:text-start'>
+            <div className='grid md:grid-cols-2 lg:text-start'>
                 <div className='flex-1'>
                     <div className='text-lg mt-10 xl:mt-3'>
                         <div className='flex  justify-start flex-col'>
@@ -59,7 +59,7 @@ const{ ref }=useSectionInView("#about")
                     <img
                       src="/abtnew.png"
                      alt='about-Me'
-                     className='hidden lg:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-80 dark:opacity-85' 
+                     className='hidden md:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-80 dark:opacity-85' 
                     />
                     </Fade>
                   </div>
