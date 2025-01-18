@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "𝕚𝕥𝕤 𝕞𝕖 ℙ𝕜",
   description: "My Personal Portfolio....",
   icons:{
-    icon:"/about.png",
+    icon:"/aboutnew.png",
   }
 };
 

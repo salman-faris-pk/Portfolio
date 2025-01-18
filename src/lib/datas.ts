@@ -40,7 +40,7 @@ export const projectData: projectInfo[] =[
     {
         title: "Chat Me app",
         description:"Engage in real-time conversations with users across all devices, ensuring a responsive and seamless chatting experience.",
-        tags:["React-vite","React-tk","TailwindCss","MongoDB","Express.js","Formik","socket.io"],
+        tags:["React-vite","Redux-tk","TailwindCss","MongoDB","Express.js","Formik","socket.io"],
         imageUrl: "/chat.png",
         Allimg: ["/chat2.png","/chat2.png","/chat3.png","/chat4.png","/chat5.png","/chat6.png"],
         link:"https://www.google.com"
@@ -79,6 +79,7 @@ export const SkillsDatas=[
     "Node.js",
     "ExpressJs",
     "MongoDB",
+    "Nest js",
     "TailwindCSS",
     "RTK-query",
     "Git",
