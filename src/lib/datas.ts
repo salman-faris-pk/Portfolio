@@ -79,7 +79,6 @@ export const SkillsDatas=[
     "Node.js",
     "ExpressJs",
     "MongoDB",
-    "Nest js",
     "TailwindCSS",
     "RTK-query",
     "Git",
