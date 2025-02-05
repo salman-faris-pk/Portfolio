@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     from:  process.env.SMTP_USER,
     replyTo: email,
     to:  process.env.SMTP_USER,
-    subject: 'Message from Your Portfolio...',
+    subject: 'Mail from Your Portfolio...',
     text: `Message from: ${email}\n\n${message}`,
   };
 
