@@ -47,7 +47,7 @@ const Intro = () => {
                      className='rounded-full shadow-xl object-cover'
                     />
                 </motion.div>
-                <motion.span className='hidden md:block text-6xl absolute bottom-8 right-12'
+                <motion.span className='hidden xl:block text-6xl absolute bottom-8 right-12'
                   initial={{opacity: 0, scale: 0}}
                   animate={{ opacity: 1, scale: 1}}
                   transition={{
