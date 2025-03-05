@@ -11,10 +11,10 @@ const sora = Sora({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 })
 export const metadata: Metadata = {
-  title: "𝕚𝕥𝕤 𝕞𝕖 ℙ𝕜",
-  description: "My Personal Portfolio....",
+  title: "Salmanul Faris PK | Full-Stack MERN Developer",
+  description:  "A passionate developer who loves turning ideas into reality through code. Always exploring new technologies, solving problems, and creating impactful digital experiences.",
   icons:{
-    icon:"/aboutnew.png",
+    icon:"/luv2.png",
   }
 };
 
