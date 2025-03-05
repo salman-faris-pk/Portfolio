@@ -26,6 +26,7 @@ const{ ref }=useSectionInView("#about")
             </Fade>
         
             <div className='grid md:grid-cols-2 lg:text-start'>
+
                 <div className='flex-1'>
                     <div className='text-lg mt-10 xl:mt-3'>
                         <div className='flex  justify-start flex-col'>
@@ -57,9 +58,9 @@ const{ ref }=useSectionInView("#about")
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <img
-                      src="/abtnew.png"
+                      src="/luv2.png"
                      alt='about-Me'
-                     className='hidden md:block rounded-3xl dark:rounded-full mt-16 object-cover ms-20 w-[220px] opacity-70 dark:opacity-70' 
+                     className='mt-12 md:mt-20 object-cover ms-5 md:ms-10 h-[370px]' 
                     />
                     </Fade>
                   </div>
