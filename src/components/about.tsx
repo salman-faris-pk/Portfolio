@@ -58,9 +58,9 @@ const{ ref }=useSectionInView("#about")
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <img
-                      src="/luv2.png"
+                     src="spk1.png"
                      alt='about-Me'
-                     className='mt-12 md:mt-20 object-cover ms-5 md:ms-10 h-[370px]' 
+                     className='mt- object-cover ms-7 md:ms-10 h-[470px]' 
                     />
                     </Fade>
                   </div>

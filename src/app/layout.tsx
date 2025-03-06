@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Salmanul Faris PK ",
   description:  "A passionate developer who loves turning ideas into reality through code. Always exploring new technologies, solving problems, and creating impactful digital experiences.",
   icons:{
-    icon:"/luv2.png",
+    icon:"/pkk1.png",
   }
 };
 
