@@ -63,7 +63,7 @@ const{ ref }=useSectionInView("#about")
                      alt='about-Me'
                      width={500}
                      height={470} 
-                     className='object-cover ms-7 md:ms-10 h-[470px]' 
+                     className='object-cover  md:ms-10' 
                     />
                     </Fade>
                   </div>
