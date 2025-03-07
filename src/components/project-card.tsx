@@ -2,7 +2,7 @@ import 'swiper/swiper-bundle.css';
 import Image from "next/image"
 import { projectInfo } from "@/lib/types"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
@@ -17,7 +17,6 @@ type ProjectProps = projectInfo & {
 export default function Project({ title, description, tags, imageUrl, Allimg,isOpen,onOpen,onClose,}: ProjectProps) {
 
   const ref = useRef<HTMLDivElement>(null)
-  const [openImg, setOpenImg] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"]
@@ -39,7 +38,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg,isO
   }, [isOpen]);
 
   return (
-    <motion.div className="group mb-3 sm:mb-8 last:mb-0"   onClick={onOpen}
+    <motion.div className="group mb-3 sm:mb-8 last:mb-0"  onClick={onOpen}
       ref={ref}
       style={{
         scale: scaleProgress,
@@ -71,7 +70,6 @@ export default function Project({ title, description, tags, imageUrl, Allimg,isO
           quality={95}
           width={400}
           height={100}
-          onClick={() => setOpenImg(true)}
           className="absolute opacity-20 sm:opacity-100 top-8 -right-40 rounded-t-lg shadow-2xl transition group-hover:scale-[1.04]
                group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 
                group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2

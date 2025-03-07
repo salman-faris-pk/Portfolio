@@ -16,7 +16,6 @@ import { useState } from 'react';
 const Intro = () => {
 
   const { ref: homeRef } = useSectionInView("#home", 0.5);
-  const { ref: contactRef } = useSectionInView("#contact", 0.5);
 
   const [isHovered, setIsHovered] = useState(false);
    
@@ -80,7 +79,7 @@ const Intro = () => {
     
 
           <div className="relative">
-          <Link href="#contact" ref={contactRef} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
+          <Link href="#contact" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
             outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition'
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

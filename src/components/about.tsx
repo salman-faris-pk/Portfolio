@@ -4,6 +4,7 @@ import SectionHeading from './section-heading'
 import { useSectionInView } from '@/lib/useInView'
 import { motion } from "framer-motion"
 import { Fade } from 'react-awesome-reveal'
+import Image from "next/image";
 
 const About = () => {
 
@@ -57,10 +58,12 @@ const{ ref }=useSectionInView("#about")
                 {/**Right image section */}
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
-                    <img
-                     src="spk1.png"
+                    <Image
+                     src="/spk1.png"
                      alt='about-Me'
-                     className='mt- object-cover ms-7 md:ms-10 h-[470px]' 
+                     width={500}
+                     height={470} 
+                     className='object-cover ms-7 md:ms-10 h-[470px]' 
                     />
                     </Fade>
                   </div>

@@ -18,7 +18,7 @@ export default function Projects(){
                 My Projects
             </SectionHeading>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+            <div>
                 {
                 projectData.map((project, index)=> (
                     <Project {...project} key={index}

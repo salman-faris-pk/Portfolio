@@ -1,10 +1,9 @@
 "use client"
-import React from "react"
 import NextLink from "next/link"
 import clsx from "clsx"
 import { Link } from "@/lib/types"
 import { useActiveSectionContext } from "@/containers/active-section"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
 
 
@@ -13,7 +12,8 @@ type headerProps={
 }
 export default function Header({links}:headerProps){
 
-    const{activeSection,setActiveSection,setTimeOfLastClick}=useActiveSectionContext()
+    const{activeSection,setActiveSection,setTimeOfLastClick}=useActiveSectionContext();
+    
     return(
         <header className="hidden md:flex justify-center items-center fixed z-40 w-full mt-4">
             <motion.div className="flex p-1 rounded-none border border-white border-opacity-40 bg-white bg-opacity-80
