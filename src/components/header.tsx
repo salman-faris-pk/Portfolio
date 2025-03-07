@@ -15,7 +15,7 @@ export default function Header({links}:headerProps){
 
     const{activeSection,setActiveSection,setTimeOfLastClick}=useActiveSectionContext()
     return(
-        <header className="hidden md:flex justify-center items-center fixed z-[999] w-full mt-4">
+        <header className="hidden md:flex justify-center items-center fixed z-40 w-full mt-4">
             <motion.div className="flex p-1 rounded-none border border-white border-opacity-40 bg-white bg-opacity-80
                 shadow-lg shadow-black/[0.3] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
                 initial={{y: -100,opacity:0}}

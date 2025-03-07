@@ -29,7 +29,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   };
 
   return (
-    <div className="md:hidden top-5 right-5 fixed w-60 z-[999] flex flex-col items-end gap-2">
+    <div className="md:hidden top-5 right-5 fixed w-60 z-40 flex flex-col items-end gap-2">
       <motion.button
         variants={menuTrigger}
         initial="visible"

@@ -2,17 +2,22 @@ import 'swiper/swiper-bundle.css';
 import Image from "next/image"
 import { projectInfo } from "@/lib/types"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 
 
-type ProjectProps = projectInfo;
+type ProjectProps = projectInfo & {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+};
 
-export default function Project({ title, description, tags, imageUrl, Allimg}: ProjectProps) {
+export default function Project({ title, description, tags, imageUrl, Allimg,isOpen,onOpen,onClose,}: ProjectProps) {
 
   const ref = useRef<HTMLDivElement>(null)
+  const [openImg, setOpenImg] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"]
@@ -20,11 +25,21 @@ export default function Project({ title, description, tags, imageUrl, Allimg}: P
 
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
 
-  const [openImg, setOpenImg] = useState(false)
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isOpen]);
 
   return (
-    <motion.div className="group mb-3 sm:mb-8 last:mb-0"   onClick={() => setOpenImg(true)}
+    <motion.div className="group mb-3 sm:mb-8 last:mb-0"   onClick={onOpen}
       ref={ref}
       style={{
         scale: scaleProgress,
@@ -63,9 +78,21 @@ export default function Project({ title, description, tags, imageUrl, Allimg}: P
                 group-even:right-[initial] group-even:-left-40 "
         />
 
-        {openImg && (
-          <div className="fixed bottom-60 inset-0 flex items-center justify-center w-full h-full bg-black/70 z-20" onClick={()=>setOpenImg(false)}>
-            <div className="relative w-[400px] h-[100px] md:w-[600px] md:h-[300px] rounded-2xl" onClick={(e) => e.stopPropagation()}>
+      {isOpen && (
+          <div className="fixed bottom-60 inset-0 flex items-center justify-center w-full h-full bg-black/90 dark:bg-black/70 z-50">
+      <button
+      className="absolute top-32 md:top-24 md:right-80 p-2 bg-white/30 rounded-full z-30 hover:bg-white/50 cursor-pointer"
+        onClick={(e) => {
+        e.stopPropagation();
+         onClose();
+      }}
+
+       >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 md:h-7 md:w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+        </button>
+            <div className="relative w-full h-[300px] md:w-[55vw] md:h-[55vh] rounded-2xl" onClick={(e)=> e.stopPropagation()}>
               <Swiper
                 modules={[Navigation]}
                 slidesPerView={1}
@@ -83,7 +110,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg}: P
                       width={400}
                       height={100}
                       className="w-full h-full object-cover rounded-2xl"
-                      onClick={()=> setOpenImg(false)}
+                      onClick={onClose}
                     />
                   </SwiperSlide>
                 ))}
@@ -91,6 +118,7 @@ export default function Project({ title, description, tags, imageUrl, Allimg}: P
             </div>
           </div>
         )}
+
       </section>
     </motion.div>
   )
