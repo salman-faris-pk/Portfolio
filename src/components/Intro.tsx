@@ -37,7 +37,7 @@ const Intro = () => {
                  }}
                 >
                     <Image
-                    //  src='/pkk1.png'
+                 
                     src='/jak.png'
                      alt='profile-img'
                      width="300"
