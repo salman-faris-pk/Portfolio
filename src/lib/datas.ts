@@ -76,7 +76,7 @@ export const SkillsDatas=[
     "Next.js",
     "TypeScript",
     "Redux ToolKit",
-    "Node.js",
+    "Node js",
     "ExpressJs",
     "Nest js",
     "MongoDB",
