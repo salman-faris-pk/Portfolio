@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 3010",
+    "dev": "next dev -p 3010",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,9 +16,9 @@
     "lucide-react": "^0.445.0",
     "next": "^15.3.0",
     "nodemailer": "^6.9.15",
-    "react": "^19.1.0",
+    "react": "^18.3.1",
     "react-awesome-reveal": "^4.2.14",
-    "react-dom": "^19.1.0",
+    "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-intersection-observer": "^9.13.1",
     "react-toastify": "^10.0.5",
