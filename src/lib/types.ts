@@ -15,5 +15,6 @@ export type projectInfo={
     tags: string[];
     imageUrl: string;
     Allimg: string[];
-    link: string | null
+    Github: string | null;
+    preview?: string;
 }
