@@ -12,7 +12,7 @@ const{ ref }=useSectionInView("#about")
 
   return (
     <motion.section id='about' ref={ref}
-     className='max-w-[45rem] text-center mt-5 lg:mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28'
+     className='max-w-[45rem] text-center mt-6 lg:mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28'
      initial={{opacity:0, y: 100}}
      animate={{opacity: 1,y : 0}}
      transition={{
