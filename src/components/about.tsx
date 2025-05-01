@@ -5,11 +5,13 @@ import { useSectionInView } from '@/lib/useInView'
 import { motion } from "framer-motion"
 import { Fade } from 'react-awesome-reveal'
 import Image from "next/image";
+import { useTheme } from '@/containers/theme-context'
 
 const About = () => {
 
 const{ ref }=useSectionInView("#about")
-
+ const { theme }=useTheme();
+ 
   return (
     <motion.section id='about' ref={ref}
      className='max-w-[45rem] text-center mt-6 lg:mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28'
@@ -59,8 +61,7 @@ const{ ref }=useSectionInView("#about")
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
-                    //  src="/spk1.png"
-                    src="/abt1a.png"
+                     src={theme === 'dark' ? "/abt1a.png" : "/spk1.png"}
                      alt='about-Me'
                      width={500}
                      height={470} 
