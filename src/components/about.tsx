@@ -59,7 +59,8 @@ const{ ref }=useSectionInView("#about")
                   <div>
                     <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
-                     src="/spk1.png"
+                    //  src="/spk1.png"
+                    src="/abt1a.png"
                      alt='about-Me'
                      width={500}
                      height={470} 
