@@ -100,6 +100,8 @@ const Intro = () => {
               width="300"
               height="200"
               quality={100}
+              loading="eager"
+              fetchPriority="high"
               priority={true}
               className="rounded-full shadow-xl object-cover"
             />
