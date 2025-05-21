@@ -64,7 +64,11 @@ const{ ref }=useSectionInView("#about")
                      src={theme === 'dark' ? "/abt1a.png" : "/spk1.png"}
                      alt='about-Me'
                      width={500}
-                     height={470} 
+                     height={470}
+                     quality={100}
+                     loading="eager"
+                     fetchPriority="high"
+                     priority={true} 
                      className='object-cover  md:ms-10' 
                     />
                     </Fade>
