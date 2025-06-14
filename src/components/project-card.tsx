@@ -64,7 +64,7 @@ export default function Project({
     });
   };
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: { realIndex: number}) => {
     setActiveIndex(swiper.realIndex);
   };
 
