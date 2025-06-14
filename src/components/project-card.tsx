@@ -1,12 +1,19 @@
-import 'swiper/swiper-bundle.css';
-import Image from "next/image"
-import { projectInfo } from "@/lib/types"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef } from "react"
+"use client";
+import { useState, useRef,useEffect } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
 
-type ProjectProps = projectInfo & {
+type ProjectProps = {
+  title: string;
+  description:  string | null;
+  tags: string[];
+  Github?: string | null;
+  preview?: string | undefined;
+  imageUrl: string;
+  Allimg: string[];
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -24,8 +31,10 @@ export default function Project({
   onOpen, 
   onClose 
 }: ProjectProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [loadedImages, setLoadedImages] = useState<boolean[]>(Array(Allimg.length).fill(false));
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"]
@@ -37,6 +46,7 @@ export default function Project({
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('no-scroll');
+      setLoadedImages(Array(Allimg.length).fill(false));
     } else {
       document.body.classList.remove('no-scroll');
     }
@@ -44,7 +54,19 @@ export default function Project({
     return () => {
       document.body.classList.remove('no-scroll');
     };
-  }, [isOpen]);
+  }, [isOpen, Allimg.length]);
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  };
+
+  const handleSlideChange = (swiper: any) => {
+    setActiveIndex(swiper.realIndex);
+  };
 
   return (
     <motion.div 
@@ -79,7 +101,7 @@ export default function Project({
         <Image
           src={imageUrl}
           alt="Project preview"
-          quality={95}
+          quality={100}
           width={400}
           height={100}
           className="absolute opacity-20 sm:opacity-100 top-8 -right-40 rounded-t-lg shadow-2xl transition group-hover:scale-[1.04]
@@ -146,18 +168,32 @@ export default function Project({
                   navigation
                   loop={true}
                   className="h-full w-full"
+                  onSlideChangeTransitionStart={() => {
+                    setLoadedImages(prev => {
+                      const newLoaded = [...prev];
+                      newLoaded[activeIndex] = false;
+                      return newLoaded;
+                    });
+                  }}
+                  onSlideChange={handleSlideChange}
                 >
                   {Allimg.map((image, index) => (
                     <SwiperSlide key={index} className="flex items-center justify-center">
                       <div className="relative w-full h-full">
+                        {!loadedImages[index] && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-gray-800/50 animate-pulse">
+                            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                          </div>
+                        )}
                         <Image
                           src={image}
                           alt={`${title} screenshot ${index + 1}`}
-                          quality={95}
+                          quality={100}
                           fill
                           className="object-contain"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
                           priority={index === 0}
+                          onLoadingComplete={() => handleImageLoad(index)}
                         />
                       </div>
                     </SwiperSlide>
@@ -169,5 +205,5 @@ export default function Project({
         )}
       </section>
     </motion.div>
-  )
+  );
 }
