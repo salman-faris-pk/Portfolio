@@ -6,11 +6,13 @@ import { motion } from "framer-motion"
 import { Fade } from 'react-awesome-reveal'
 import Image from "next/image";
 import { useTheme } from '@/containers/theme-context'
+import { useMediaQuery } from 'react-responsive'
 
 const About = () => {
 
 const{ ref }=useSectionInView("#about")
  const { theme }=useTheme();
+ const isMobile = useMediaQuery({ maxWidth: 767 });
  
   return (
     <motion.section id='about' ref={ref}
@@ -59,7 +61,7 @@ const{ ref }=useSectionInView("#about")
 
                 {/**Right image section */}
                   <div>
-                    <Fade direction='right' delay={600} cascade damping={1e-1} triggerOnce={true}>
+                    <Fade direction={isMobile ? 'up' : 'right'} delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
                      src={theme === 'dark' ? "/abt1a.png" : "/spk1.png"}
                      alt='about-Me'
