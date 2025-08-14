@@ -15,6 +15,7 @@ export default function Home() {
       <Contact />
        <div className="w-full border border-t-2 mt-14 dark:border-gray-800">
        </div>
+        
     </div>
   );
 }

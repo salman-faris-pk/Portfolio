@@ -3,20 +3,41 @@ import { projectData } from "@/lib/datas";
 import SectionHeading from "./section-heading";
 import Project from "./project-card";
 import { useSectionInView } from "@/lib/useInView";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/swiper-bundle.css';
+import useEmblaCarousel from 'embla-carousel-react';
 
 
 export default function Projects() {
     const { ref } = useSectionInView("#projects", 0.1);
     const [openProjectIndex, setOpenProjectIndex] = useState<number | null>(null);
     const [loadedImages, setLoadedImages] = useState<boolean[]>([]);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const openProject = openProjectIndex !== null ? projectData[openProjectIndex] : null;
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        onSelect();
+        emblaApi.on('select', onSelect);
+        return () => {
+            emblaApi.off('select', onSelect);
+        };
+    }, [emblaApi, onSelect]);
 
     useEffect(() => {
         if (openProject) {
@@ -35,15 +56,6 @@ export default function Projects() {
         setLoadedImages(prev => {
             const newLoaded = [...prev];
             newLoaded[index] = true;
-            return newLoaded;
-        });
-    };
-
-    const handleSlideChange = (swiper: { realIndex: number}) => {
-        setActiveIndex(swiper.realIndex);
-        setLoadedImages(prev => {
-            const newLoaded = [...prev];
-            newLoaded[swiper.realIndex] = false;
             return newLoaded;
         });
     };
@@ -67,7 +79,7 @@ export default function Projects() {
             {openProject && (
                 <div className="fixed inset-0 flex items-center justify-center w-full h-full bg-black/90 dark:bg-black/80 z-50">
                     <div className="absolute top-24 w-full max-w-4xl px-4">
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="flex justify-center md:justify-between items-center mb-4">
                             <h3 className="hidden sm:block text-2xl font-semibold text-white">{openProject.title}</h3>
                             <div className="flex items-center space-x-4">
                                 {openProject.Github && (
@@ -93,7 +105,7 @@ export default function Projects() {
                                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                         </svg>
-                                        Live Preview
+                                          Preview
                                     </a>
                                 )}
                                 <button
@@ -108,45 +120,55 @@ export default function Projects() {
                         </div>
                         
                         <div className="relative w-full h-[60vh] rounded-2xl bg-gray-900/50">
-                            <Swiper
-                                modules={[Navigation]}
-                                slidesPerView={1}
-                                spaceBetween={20}
-                                pagination={{ clickable: true }}
-                                navigation
-                                loop={true}
-                                className="h-full w-full"
-                                onSlideChangeTransitionStart={() => {
-                                    setLoadedImages(prev => {
-                                        const newLoaded = [...prev];
-                                        newLoaded[activeIndex] = false;
-                                        return newLoaded;
-                                    });
-                                }}
-                                onSlideChange={handleSlideChange}
-                            >
-                                {openProject.Allimg.map((image, index) => (
-                                    <SwiperSlide key={index} className="flex items-center justify-center">
-                                        <div className="relative w-full h-full">
-                                            {!loadedImages[index] && (
-                                                <div className="absolute inset-0 flex items-center justify-center bg-gray-800/50 animate-pulse">
-                                                    <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                                                </div>
-                                            )}
-                                            <Image
-                                                src={image}
-                                                alt={`${openProject.title} screenshot ${index + 1}`}
-                                                quality={100}
-                                                fill
-                                                className="object-contain"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-                                                priority={index === 0}
-                                                onLoadingComplete={() => handleImageLoad(index)}
-                                            />
+                            <div className="embla overflow-hidden h-full" ref={emblaRef}>
+                                <div className="embla__container flex h-full">
+                                    {openProject.Allimg.map((image, index) => (
+                                        <div className="embla__slide flex-[0_0_100%] min-w-0 relative" key={index}>
+                                            <div className="relative w-full h-full">
+                                                {!loadedImages[index] && (
+                                                    <div className="absolute inset-0 flex items-center justify-center bg-gray-800/50 animate-pulse">
+                                                        <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                                                    </div>
+                                                )}
+                                                <Image
+                                                    src={image}
+                                                    alt={`${openProject.title} screenshot ${index + 1}`}
+                                                    quality={100}
+                                                    fill
+                                                    className="object-contain"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                                                    priority={index === 0}
+                                                    onLoadingComplete={() => handleImageLoad(index)}
+                                                />
+                                            </div>
                                         </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <button 
+                                className="embla__prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-blue-700 rounded-full hover:bg-blue-600"
+                                onClick={scrollPrev}
+                            >
+                                <svg className="w-4 h-4 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            
+                            <button 
+                                className="embla__next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-blue-700 rounded-full hover:bg-blue-600"
+                                onClick={scrollNext}
+                            >
+                                <svg className="w-4 h-4 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <div className="flex justify-center -mt-32 md:mt-4">
+                               <span className="text-white text-sm">
+                                  {selectedIndex + 1} / {openProject.Allimg.length}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

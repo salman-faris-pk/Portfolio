@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useTheme } from '@/containers/theme-context'
 import { useMediaQuery } from 'react-responsive'
 
+
 const About = () => {
 
 const{ ref }=useSectionInView("#about")
@@ -69,8 +70,7 @@ const{ ref }=useSectionInView("#about")
                      height={470}
                      quality={100}
                      loading="eager"
-                     fetchPriority="high"
-                     priority={true} 
+                     priority
                      className='object-cover  md:ms-10' 
                     />
                     </Fade>

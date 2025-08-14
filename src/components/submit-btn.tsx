@@ -1,5 +1,5 @@
+import { Send } from "lucide-react";
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
 
 type SubmitBtnProps = {
   text: string;
@@ -25,7 +25,7 @@ export default function SubmitBtn({ text, pending }: SubmitBtnProps) {
       ) : (
         <>
           {text}{" "}
-          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <Send size={18}  className="opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
         </>
       )}
     </button>
