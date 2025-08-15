@@ -61,7 +61,7 @@ const{ ref }=useSectionInView("#about")
                 </div>
 
                 {/**Right image section */}
-                  <div>
+                  <div >
                     <Fade direction={isMobile ? 'up' : 'right'} delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
                      src={theme === 'dark' ? "/abt1a.png" : "/spk1.png"}

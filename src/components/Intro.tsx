@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ScrollText, Download, X, Linkedin } from "lucide-react";
+import { Download, X, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import { useSectionInView } from "@/lib/useInView";
@@ -150,9 +150,8 @@ const Intro = () => {
             className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
             outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
           >
-            <span className="sm:hidden">Résumé</span>
-            <span className="hidden sm:inline">View Résumé</span>
-            <ScrollText color="#d1d5db" />
+            {/* <span className="sm:hidden">Résumé</span> */}
+            <span className="nline font-mono cursor-pointer">Hire me</span>
           </button>
         </div>
 
