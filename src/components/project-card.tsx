@@ -49,7 +49,9 @@ export default function Project({
             src={imageUrl}
             alt="Project preview"
             fill
-            quality={95}
+            quality={90}
+            priority
+            loading="eager"
             className="object-cover rounded-t-lg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -77,9 +79,10 @@ export default function Project({
         <Image
           src={imageUrl}
           alt="Project preview"
-          quality={100}
+          quality={90}
           width={400}
           height={100}
+          priority
           className="hidden sm:block absolute opacity-100 top-8 -right-40 rounded-t-lg shadow-2xl transition 
               group-hover:scale-[1.04] group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 
               group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2

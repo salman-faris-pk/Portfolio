@@ -6,9 +6,7 @@ import { useSectionInView } from '@/lib/useInView'
 import SubmitBtn from './submit-btn'
 import { Fade } from 'react-awesome-reveal'
 import { toast, Toaster } from 'sonner'
-import { useActionState } from 'react'
-
-
+import { useActionState, useRef, useEffect } from 'react'
 
 type FormState = {
   error?: string;
@@ -53,10 +51,16 @@ async function sendEmail(state: FormState, formData: FormData): Promise<FormStat
   }
 }
 
-
 const Contact = () => {
   const { ref } = useSectionInView("#contact")
   const [state, formAction, pending] = useActionState<FormState, FormData>(sendEmail, null)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset()
+    }
+  }, [state?.success])
 
   return (
     <motion.section id='contact' ref={ref}>
@@ -73,7 +77,11 @@ const Contact = () => {
       </Fade>
 
       <Fade direction='up' delay={800} cascade damping={1e-1} triggerOnce>
-        <form className='mt-10 flex flex-col dark:text-black' action={formAction}>
+        <form 
+          ref={formRef}
+          className='mt-10 flex flex-col dark:text-black' 
+          action={formAction}
+        >
           <input
             className={`h-14 px-4 rounded-lg border-black dark:bg-white/10 dark:text-white/80 ${
               state?.errors?.email ? 'border-red-500' : ''
