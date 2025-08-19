@@ -13,9 +13,9 @@ import { useActiveSectionContext } from "@/containers/active-section";
 
 const Intro = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const { ref: homeRef } = useSectionInView("#home", 0.5);
+  const { ref: homeRef } = useSectionInView("#", 0.5);
 
-      const{setActiveSection,setTimeOfLastClick}=useActiveSectionContext();
+  const{setActiveSection,setTimeOfLastClick}=useActiveSectionContext();
   
 
   const handleDownload = () => {

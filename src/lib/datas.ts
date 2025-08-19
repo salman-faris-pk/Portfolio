@@ -6,7 +6,7 @@ import { Link,projectInfo } from "./types";
 export const links: Link[]=[
     {
         nameEng: "Home",
-        hash: "#home"
+        hash: "#"
     },
     {
         nameEng: "About",
