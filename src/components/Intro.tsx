@@ -7,10 +7,16 @@ import { Fade } from "react-awesome-reveal";
 import { useSectionInView } from "@/lib/useInView";
 import { useEffect, useState } from "react";
 import profileImg from "@/../public/pkk1.png";
+import NextLink from "next/link"
+import { useActiveSectionContext } from "@/containers/active-section";
+
 
 const Intro = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const { ref: homeRef } = useSectionInView("#home", 0.5);
+
+      const{setActiveSection,setTimeOfLastClick}=useActiveSectionContext();
+  
 
   const handleDownload = () => {
     const fileUrl = "/salman-pk.pdf";
@@ -145,14 +151,19 @@ const Intro = () => {
         }}
       >
         <div className="relative">
-          <button
-            onClick={() => setIsResumeOpen(true)}
+          <NextLink href={'#contact'}
+            onClick={() => {
+              setActiveSection('#contact')
+              setTimeOfLastClick(Date.now());
+               setTimeout(() => {
+                setIsResumeOpen(true);
+              }, 1300);
+            }}
             className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full 
             outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
           >
-            {/* <span className="sm:hidden">Résumé</span> */}
             <span className="nline font-mono cursor-pointer">Hire me</span>
-          </button>
+           </NextLink>
         </div>
 
         <a
