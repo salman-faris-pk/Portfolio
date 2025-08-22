@@ -7,13 +7,16 @@ import { Fade } from 'react-awesome-reveal'
 import Image from "next/image";
 import { useTheme } from '@/containers/theme-context'
 import { useMediaQuery } from 'react-responsive'
-
+import abtDark from "../../public/abt1a.png"
+import abtLight from "../../public/spk1.png"
 
 const About = () => {
 
 const{ ref }=useSectionInView("#about")
  const { theme }=useTheme();
  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+ const img = theme === "dark" ? abtDark : abtLight
  
   return (
     <motion.section id='about' ref={ref}
@@ -64,14 +67,15 @@ const{ ref }=useSectionInView("#about")
                   <div >
                     <Fade direction={isMobile ? 'up' : 'right'} delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
-                     src={theme === 'dark' ? "/abt1a.png" : "/spk1.png"}
+                     src={img}
                      alt='about-Me'
                      width={500}
                      height={470}
                      quality={100}
                      loading="eager"
                      priority
-                     className='object-cover  md:ms-10' 
+                     className='object-cover  md:ms-10'
+                     placeholder='blur' 
                     />
                     </Fade>
                   </div>
