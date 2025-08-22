@@ -13,7 +13,7 @@ export function useSectionInView(sectionName: SectionName, threshold = 0.75) {
   useLayoutEffect(() => {
     const nav = performance.getEntriesByType("navigation")[0] as | PerformanceNavigationTiming | undefined;
 
-    if (nav?.type === "back_forward") {
+    if (nav?.type === "back_forward" || nav?.type === "navigate") {
        window.history.replaceState(null, "","/");
        setActiveSection("#");
        window.scrollTo({ top: 0, behavior: "instant" });
