@@ -133,9 +133,9 @@ const Intro = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
+        <h1 className="mb-10 mt-4 px-4 py-3 md:py-1 text-2xl sm:text-4xl">
           <span className="font-medium !leading-[1.5]">Salmanul Faris pk</span>{" "}
-          <p className="text-[14px]">
+          <p className="text-[14px] mt-4 md:mt-0">
             Expert in MERN stack development, delivering full-stack web
             solutions with seamless integration and optimized performance.
           </p>
