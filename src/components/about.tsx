@@ -71,7 +71,7 @@ const{ ref }=useSectionInView("#about")
                      alt='about-Me'
                      width={500}
                      height={470}
-                     quality={100}
+                     quality={95}
                      loading="eager"
                      priority
                      className='object-cover  md:ms-10'

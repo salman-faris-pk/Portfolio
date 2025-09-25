@@ -14,8 +14,7 @@ type HamburgerMenuProps = {
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } =useActiveSectionContext();
 
   const menuTrigger = {
     visible: { scale: 1, opacity: 0.7, y: 0 },
